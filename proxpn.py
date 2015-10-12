@@ -23,7 +23,7 @@ LOCATIONS_FILE_NAME     = "locations-v2.xml"
 HOME                    = os.path.expanduser("~")
 PROXPN_CONF_FOLDER      = HOME + "/.proxpn"
 SERVERS_LIST_CACHE_FILE = PROXPN_CONF_FOLDER + "/" + LOCATIONS_FILE_NAME
-SERVERS_LIST_URL        = "http://www.proxpn/updater/" + LOCATIONS_FILE_NAME
+SERVERS_LIST_URL        = "http://www.proxpn.com/updater/" + LOCATIONS_FILE_NAME
 OPENVPN_CONF_FILE       = PROXPN_CONF_FOLDER + "/proxpn.ovpn"
 CREDENTIALS_FILE        = PROXPN_CONF_FOLDER + "/auth.conf"
 
