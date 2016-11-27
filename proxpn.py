@@ -32,7 +32,7 @@ CREDENTIALS_FILE        = PROXPN_CONF_FOLDER + "/auth.conf"
 #
 parser = argparse.ArgumentParser(description='Stablish a connection with a proXPN server')
 parser.add_argument('--force-download', '-f', action='count', help='Delete the servers XML cached file, forcing it to be re-downloaded from the proXPN web page')
-parser.add_argument('--reset-credentials', '-r', action='count', help='Delete the auth file, so that you will be asked for username and passowrd once again')
+parser.add_argument('--reset-credentials', '-r', action='count', help='Delete the auth file, so that you will be asked for username and password once again')
 parser.add_argument('--udp', '-u', action='count', help='Show only UDP servers')
 parser.add_argument('--tcp', '-t', action='count', help='Show only TCP servers')
 
