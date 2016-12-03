@@ -35,6 +35,7 @@ parser.add_argument('--force-download', '-f', action='count', help='Delete the s
 parser.add_argument('--reset-credentials', '-r', action='count', help='Delete the auth file, so that you will be asked for username and password once again')
 parser.add_argument('--udp', '-u', action='count', help='Show only UDP servers')
 parser.add_argument('--tcp', '-t', action='count', help='Show only TCP servers')
+parser.add_argument('--google-dns', '-g', action='count', help='While inside the VPN, use Google DNS servers instead of the default ones (this is needed when your ISP DNS servers cannot be accessed from outside the ISP network)')
 
 args = parser.parse_args()
 
@@ -158,7 +159,11 @@ if not os.path.isfile(CREDENTIALS_FILE):
 
 # Establish the VPN connection
 #
-command = "sudo openvpn --config "+OPENVPN_CONF_FILE+" --remote "+selected_server[3]+" 443 "+selected_server[1]+" --auth-user-pass "+CREDENTIALS_FILE+" --auth-nocache"
+command = "openvpn --config "+OPENVPN_CONF_FILE+" --remote "+selected_server[3]+" 443 "+selected_server[1]+" --auth-user-pass "+CREDENTIALS_FILE+" --auth-nocache"
+if args.google_dns:
+    command = "sudo -- sh -c \"trap ' ' INT; cp /etc/resolv.conf /etc/resolv.conf.backup; echo 'nameserver 8.8.8.8' > /etc/resolv.conf; "+command+"; mv /etc/resolv.conf.backup /etc/resolv.conf\""
+else:
+    command = "sudo "+command
 print("")
 print("This is the 'openvpn' command that we are going to execute:")
 print(command)
