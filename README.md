@@ -1,5 +1,7 @@
 # proxpn_python_client
 
+## Description
+
 When executed, this script will present you a list of proXPN servers all around
 the world. Once you select one, **an openvpn connection will be established**.
 
@@ -8,6 +10,33 @@ Note that if you are not a premium subscriber, you won't be able to use all of
 these servers. ProXPN offers a great (and cheap!) service. I highly recommend
 them :)
 ```
+
+## Installation
+
+  1. Download/clone this repository
+  2. Execute `sudo ./install.sh` (see the '**Details**' section below to
+     understand what this command does)
+
+
+## Usage
+
+For most users, you just need to execute the script without arguments:
+```
+proxpn.py
+```
+The first time you will be asked for your ProXPN credentials (see the
+'**Details**' section below to understand where they are saved for later
+invocations).
+
+A list of servers all around the world will be presented for you to choose one.
+Do so and leave the terminal window open.
+
+Once you are done, simple enter "CTRL+c" on the terminal window and the tunnel
+will be automatically closed and all the network configuration will be reset to
+its original state.
+
+
+## Details
 
 A few things that are worth mentioning:
 
